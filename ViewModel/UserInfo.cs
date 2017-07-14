@@ -91,17 +91,17 @@ namespace ViewModel
 
         #region UserArea
 
-        //private UserArea _UserArea;
+        private UserArea _UserArea;
 
-        //public UserArea UserArea
-        //{
-        //    get { return _UserArea; }
-        //    set
-        //    {
-        //        if (_UserArea != null && _UserArea.Equals(value)) return;
-        //        _UserArea = value;
-        //    }
-        //}
+        public UserArea UserArea
+        {
+            get { return _UserArea; }
+            set
+            {
+                if (_UserArea != null && _UserArea.Equals(value)) return;
+                _UserArea = value;
+            }
+        }
 
         #endregion
     }
