@@ -1,0 +1,120 @@
+﻿<Fluent:RibbonWindow x:Class="InfoDemoOne.MainWindow"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:Fluent="urn:fluent-ribbon"
+                     Title="东方财富资讯客户端" 
+                     Width="800" 
+                     Height="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Fluent:StatusBar Margin="0,83,0,321" Grid.Row="1">
+            <!-- Place your items here -->
+            <Fluent:StatusBarItem Title="Left placed item"
+                          Value="150"
+                          HorizontalAlignment="Left">
+                <TextBlock Text="150 px" />
+            </Fluent:StatusBarItem>
+
+            <Separator HorizontalAlignment="Left" />
+
+            <Fluent:StatusBarItem Title="Second left placed item"
+                          Value="Value shown in ContextMenu"
+                          ToolTip="Your ToolTip"
+                          Content="Content shown in StatusBar"
+                          HorizontalAlignment="Left" />
+
+            <Fluent:StatusBarItem Title="Item placed on the right side"
+                          HorizontalAlignment="Right"
+                          Value="Your value which is also used as content if no content is set." />
+        </Fluent:StatusBar>
+
+        <Fluent:Ribbon Grid.Row="0">
+
+            <!--Quick Access Toolbar Items-->
+            <Fluent:Ribbon.QuickAccessItems>
+                <!--Use Content or Target Property to set QAT item-->
+                <Fluent:QuickAccessMenuItem IsChecked="true">
+                    <Fluent:Button Header="Pink" Icon="Images\Pink.png" />
+                </Fluent:QuickAccessMenuItem>
+
+                <!--You Can Just Bind with Any Control-->
+                <Fluent:QuickAccessMenuItem Target="{Binding ElementName=RibbonGroupBox1}" />
+            </Fluent:Ribbon.QuickAccessItems>
+
+            <!--Backstage-->
+            <Fluent:Ribbon.Menu>
+                <Fluent:Backstage>
+                    <Fluent:BackstageTabControl>
+                        <Fluent:BackstageTabItem Header="New" />
+                        <Fluent:BackstageTabItem Header="Print" />
+                        <Fluent:Button Header="Blue" />
+                    </Fluent:BackstageTabControl>
+                </Fluent:Backstage>
+            </Fluent:Ribbon.Menu>
+
+            <!--Tabs-->
+            <Fluent:RibbonTabItem Header="Home" Group="{Binding ElementName=toolsGroup}">
+                <Fluent:RibbonGroupBox Header="Group" Fluent:KeyTip.Keys="Z">
+                    <Fluent:Button Header="Green"
+                           Icon="Images\Green.png"
+                           LargeIcon="Images\GreenLarge.png" Fluent:KeyTip.Keys="R"/>
+                    <Fluent:Button Header="Grey" 
+                           Icon="Images\Gray.png"
+                           LargeIcon="Images\GrayLarge.png" Fluent:KeyTip.Keys="P"/>
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox Header="Group1">
+                    <Fluent:SplitButton  >
+                        <Fluent:MenuItem Fluent:KeyTip.Keys="R">
+                            <Fluent:MenuItem Fluent:KeyTip.Keys="O"/>
+                        </Fluent:MenuItem>
+                    </Fluent:SplitButton>
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox Header="Group" x:Name="RibbonGroupBox1">
+                    <Fluent:Button Content="Center" LargeIcon="E:\4VS\workSpace\Information\InfoDemoOne\car.png"
+                       Fluent:KeyTip.AutoPlacement="False"
+                       Fluent:KeyTip.HorizontalAlignment="Center"
+                       Fluent:KeyTip.VerticalAlignment="Center"
+                       Fluent:KeyTip.Keys="C" />
+                    <Fluent:Button Content="Left" LargeIcon="E:\4VS\workSpace\Information\InfoDemoOne\car.png"
+                       Fluent:KeyTip.AutoPlacement="False"
+                       Fluent:KeyTip.HorizontalAlignment="Left"
+                       Fluent:KeyTip.VerticalAlignment="Center"
+                       Fluent:KeyTip.Keys="L" />
+                    <Fluent:Button Content="Top" LargeIcon="E:\4VS\workSpace\Information\InfoDemoOne\car.png"
+                       Fluent:KeyTip.AutoPlacement="False"
+                       Fluent:KeyTip.HorizontalAlignment="Center"
+                       Fluent:KeyTip.VerticalAlignment="Top"
+                       Fluent:KeyTip.Keys="T" />
+                    <Fluent:Button >
+                        <Fluent:Button.ToolTip>
+                            <Fluent:ScreenTip Title="Gray"
+                              HelpTopic="Help for Gray ScreenTip"
+                              Image="E:\4VS\workSpace\Information\InfoDemoOne\car.png"
+                              Text="This ScreenTip is ribbon aligned. &#x0a;
+                                    It has the image and handles F1." />
+                        </Fluent:Button.ToolTip>
+                    </Fluent:Button>
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+
+            <Fluent:Ribbon.ContextualGroups>
+                <Fluent:RibbonContextualTabGroup x:Name="toolsGroup"
+                                     Header="Tools" 
+                                     Visibility="Visible"
+                                     Background="Green" 
+                                     BorderBrush="Green" />
+            </Fluent:Ribbon.ContextualGroups>
+
+        </Fluent:Ribbon>
+
+        <Grid Grid.Row="1">
+            <TextBlock>My first window containing a Ribbon and something else.</TextBlock>
+        </Grid>
+
+    </Grid>
+</Fluent:RibbonWindow>

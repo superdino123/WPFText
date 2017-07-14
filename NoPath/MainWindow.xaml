@@ -1,0 +1,21 @@
+﻿<Window x:Class="NoPath.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NoPath"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <StackPanel>
+            <StackPanel.Resources>
+                <system:String x:Key="myString">
+                    测试文字
+                </system:String>
+            </StackPanel.Resources>
+            
+            <TextBlock x:Name="TextBlock1" TextWrapping="Wrap" Text="{Binding Path=.,Source={StaticResource ResourceKey=myString}}"></TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>

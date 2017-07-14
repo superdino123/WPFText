@@ -1,0 +1,27 @@
+﻿<Window x:Class="ListBoxBinding.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ListBoxBinding"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Student ID:" FontWeight="Bold"></TextBlock>
+            <TextBox x:Name="textBoxId"></TextBox>
+            <TextBlock Text="Student List:" FontWeight="Bold"></TextBlock>
+            <ListBox x:Name="listBoxStudents" Height="110">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Text="{Binding Path=Id}"></TextBox>
+                            <TextBox Text="{Binding Path=Name}"></TextBox>
+                            <TextBox Text="{Binding Path=Age}"></TextBox>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+    </Grid>
+</Window>
