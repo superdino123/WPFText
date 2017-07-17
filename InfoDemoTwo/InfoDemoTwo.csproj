@@ -41,8 +41,15 @@
     <Reference Include="Fluent">
       <HintPath>C:\Users\diplantInEastMoney\Downloads\Fluent.Ribbon-develop\Fluent.Ribbon-develop\bin\Fluent\Debugv4.5\Fluent.dll</HintPath>
     </Reference>
+    <Reference Include="MahApps.Metro">
+      <HintPath>..\..\..\..\Eastmoney\Development\Edms\Client\Applications\InformationApplication\bin\Debug\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks">
+      <HintPath>..\..\..\..\Eastmoney\Development\Edms\Client\Applications\InformationApplication\bin\Debug\MahApps.Metro.IconPacks.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -100,6 +107,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UI Design\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClientControls\ClientControls.csproj">
+      <Project>{62cab6a2-db07-4c65-a34e-33a36af87ed8}</Project>
+      <Name>ClientControls</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
