@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <GroupBox Width="300" Height="410" H>
+        <GroupBox Width="300" Height="410">
             <GroupBox.Header>
                 <Label>Employee Data</Label>
             </GroupBox.Header>
