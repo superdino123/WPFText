@@ -1,0 +1,23 @@
+﻿<Window x:Class="ControlTestExpander.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ControlTestExpander"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Expander Width="100" Height="100" VerticalAlignment="Top" HorizontalAlignment="Left"
+                  IsExpanded="False" Background="AntiqueWhite" Header="测试标题"
+                  ExpandDirection="Right">
+            <Expander.Content>
+                <StackPanel>
+                    <TextBox Text="1"></TextBox>
+                    <TextBox Text="2"></TextBox>
+                    <TextBox Text="3"></TextBox>
+                    <TextBox Text="4"></TextBox>
+                </StackPanel>
+            </Expander.Content>
+        </Expander>
+    </Grid>
+</Window>

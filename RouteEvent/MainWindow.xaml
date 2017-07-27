@@ -1,0 +1,41 @@
+﻿<Window x:Class="RouteEvent.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RouteEvent"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded"
+        >
+    <Grid x:Name="GridRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" x:Name="GridA" Margin="10" Background="Blue">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Canvas x:Name="CanvasLeft" Grid.Column="0" Background="Red" Margin="10">
+                <Button x:Name="ButtonLeft" Content="Left" Width="40" Height="100" Margin="10"></Button>
+            </Canvas>
+            <Canvas x:Name="CanvasRight" Grid.Column="1" Background="Yellow" Margin="10">
+                <Button x:Name="ButtonRight" Content="Right" Width="40" Height="100" Margin="10"></Button>
+            </Canvas>
+        </Grid>
+        <!--<Grid Grid.Row="1" Name="Grid1" local:TimeButton.ReportTime="ReportTimeHandler">
+            <Grid Name="Grid2" local:TimeButton.ReportTime="ReportTimeHandler">
+                <Grid Name="Grid3" local:TimeButton.ReportTime="ReportTimeHandler">
+                    <StackPanel x:Name="StackPanel1" local:TimeButton.ReportTime="ReportTimeHandler">
+                        <ListBox Name="ListBox" local:TimeButton.ReportTime="ReportTimeHandler"></ListBox>
+                        <local:TimeButton x:Name="TimeButton"
+                            Width="80" Height="80" Content="报时"
+                                    local:TimeButton.ReportTime="ReportTimeHandler"
+                            ></local:TimeButton>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>-->
+    </Grid>
+</Window>
