@@ -1,0 +1,46 @@
+﻿<Window x:Class="ControlTestFlowDocumentPageViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ControlTestFlowDocumentPageViewer"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >
+        <FlowDocumentPageViewer>
+            <FlowDocument xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                <Paragraph>Canvas Overview</Paragraph>
+                <Paragraph>
+                    <Rectangle Fill="Black" Height="1" Width="500" HorizontalAlignment="Left" />
+                    <LineBreak/>
+                </Paragraph>
+                <Paragraph>releases. Blank topics are included as placeholders.]
+                    <LineBreak/>
+                </Paragraph>
+                <Paragraph>The Canvas element is used to position conten</Paragraph>
+                <Paragraph>This topic contains the following sections.</Paragraph>
+                <List>
+                    <ListItem>
+                        <Paragraph>What Can I Do with the Canvas?</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>Adding a Border to a Canvas Element</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>Order of Elements in a Canvas</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>Creating a Canvas in "XAML"</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>Creating a Canvas in Code</Paragraph>
+                    </ListItem>
+                </List>
+                <Paragraph>What Can I Do with the Canvas?</Paragraph>
+                <Paragraph>sely where you want them on the screen.</Paragraph>
+                <Paragraph>Adding a Border to a Canvas Element</Paragraph>
+                <Paragraph>In order for a Ca within a Boder element.</Paragraph>
+            </FlowDocument>
+        </FlowDocumentPageViewer>
+    </Grid>
+</Window>

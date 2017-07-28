@@ -1,0 +1,40 @@
+﻿<Window x:Class="ControlTestMenu.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ControlTestMenu"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Menu>
+            <MenuItem Header="1">
+                <MenuItem.Icon>
+                    <StackPanel>
+                        <Image Source="2017-07-28_100122.png"></Image>
+                    </StackPanel>
+                </MenuItem.Icon>
+                <MenuItem Header="1.1" IsCheckable="True"></MenuItem>
+                <Separator></Separator>
+                <MenuItem Header="1.2" IsCheckable="True" IsChecked="True"></MenuItem>
+                <MenuItem Header="1.3"></MenuItem>
+                <MenuItem Header="1.4"></MenuItem>
+                <MenuItem Header="1.5"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="2" IsSubmenuOpen="True" IsTextSearchCaseSensitive="True" IsTextSearchEnabled="True">
+                <MenuItem Header="2.1"></MenuItem>
+                <MenuItem Header="2.2"></MenuItem>
+                <MenuItem Header="2.3"></MenuItem>
+                <MenuItem Header="2.4"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="3" >
+                <MenuItem Header="3.1"></MenuItem>
+                <MenuItemRole>SubmenuHeader</MenuItemRole>
+                <MenuItem Header="3.3">
+                    <MenuItem Header="3.3.1"></MenuItem>
+                </MenuItem>
+                <MenuItem Header="3.4"></MenuItem>
+            </MenuItem>
+        </Menu>
+    </Grid>
+</Window>

@@ -1,0 +1,19 @@
+﻿<Window x:Class="ControlTestRadioButton.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ControlTestRadioButton"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <RadioButton Content="1" GroupName="2"></RadioButton>
+        <RadioButton Content="2" GroupName="1" IsThreeState="True"></RadioButton>
+        <RadioButton Content="3" GroupName="2"></RadioButton>
+        <RadioButton Content="4" GroupName="1"></RadioButton>
+        <RadioButton Content="5" GroupName="2"></RadioButton>
+        <RadioButton Content="6" GroupName="1"></RadioButton>
+        <RadioButton Content="7" GroupName="3"></RadioButton>
+        <RadioButton Content="8" GroupName="3"></RadioButton>
+    </Grid>
+</Window>

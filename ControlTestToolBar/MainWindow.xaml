@@ -1,0 +1,18 @@
+﻿<Window x:Class="ControlTestToolBar.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ControlTestToolBar"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <ToolBar Header="头部" Height="20" Width="100" AlternationCount="3" Band="1" BandIndex="1" IsOverflowOpen="True" >
+            <Button Content="123"></Button>
+            <Button Content="234"></Button>
+            <Button Content="345"></Button>
+            <Button Content="456"></Button>
+            <Button Content="567"></Button>
+        </ToolBar>
+    </Grid>
+</Window>
