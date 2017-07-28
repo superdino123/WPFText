@@ -1,0 +1,31 @@
+﻿<Window x:Class="ControlTestTabItem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ControlTestTabItem"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <TabItem>
+            <TabItem.Header>
+                <TextBlock 
+                    Width="30" 
+                    FontSize="24"
+                    FontWeight="Normal" 
+                    TextWrapping="Wrap"> 
+
+                    <Run Text="人"/> 
+                    <LineBreak/> 
+                    <LineBreak/>
+                    <LineBreak/>
+                    <Run Text="证"/> 
+                    <LineBreak/>            
+                    <TextBlock.LayoutTransform >
+                        <RotateTransform Angle="270"/>
+                    </TextBlock.LayoutTransform>
+                </TextBlock>
+            </TabItem.Header>
+        </TabItem>
+    </Grid>
+</Window>
