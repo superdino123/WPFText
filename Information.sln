@@ -95,6 +95,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PropertyObject", "PropertyO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PropertyAttached", "PropertyAttached\PropertyAttached.csproj", "{7C35018C-0D66-42A2-8E0F-06A5A5902FA0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlTestTreeView", "ControlTestTreeView\ControlTestTreeView.csproj", "{ECC18F89-3EF6-4777-AE99-0BCB6EE88CC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlTestCalendar", "ControlTestCalendar\ControlTestCalendar.csproj", "{3FBF52A6-786D-491A-8B7B-D123EB7AB61E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlTestDatePicker", "ControlTestDatePicker\ControlTestDatePicker.csproj", "{8C73B7C8-9972-475D-91E5-DBED51FCC511}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -281,6 +287,18 @@ Global
 		{7C35018C-0D66-42A2-8E0F-06A5A5902FA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C35018C-0D66-42A2-8E0F-06A5A5902FA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C35018C-0D66-42A2-8E0F-06A5A5902FA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECC18F89-3EF6-4777-AE99-0BCB6EE88CC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECC18F89-3EF6-4777-AE99-0BCB6EE88CC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECC18F89-3EF6-4777-AE99-0BCB6EE88CC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECC18F89-3EF6-4777-AE99-0BCB6EE88CC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FBF52A6-786D-491A-8B7B-D123EB7AB61E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FBF52A6-786D-491A-8B7B-D123EB7AB61E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FBF52A6-786D-491A-8B7B-D123EB7AB61E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FBF52A6-786D-491A-8B7B-D123EB7AB61E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C73B7C8-9972-475D-91E5-DBED51FCC511}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C73B7C8-9972-475D-91E5-DBED51FCC511}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C73B7C8-9972-475D-91E5-DBED51FCC511}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C73B7C8-9972-475D-91E5-DBED51FCC511}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

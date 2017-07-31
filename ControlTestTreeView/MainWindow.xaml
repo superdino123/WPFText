@@ -1,0 +1,22 @@
+﻿<Window x:Class="ControlTestTreeView.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ControlTestTreeView"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <HierarchicalDataTemplate DataType="{x:Type local:Category}" ItemsSource="{Binding Path=CategoryName}">
+            <TextBlock Text="{Binding Path=Products}"></TextBlock>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate DataType="{x:Type local:Product}">
+            <TextBlock Text="{Binding Path=Name}"></TextBlock>
+        </HierarchicalDataTemplate>
+    </Window.Resources>
+    <StackPanel>
+        <TreeView Name="TreeView" Margin="5">
+        </TreeView>
+        <TextBlock Text="测试失败"></TextBlock>
+    </StackPanel>
+</Window>
