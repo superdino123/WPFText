@@ -101,6 +101,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlTestCalendar", "Cont
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlTestDatePicker", "ControlTestDatePicker\ControlTestDatePicker.csproj", "{8C73B7C8-9972-475D-91E5-DBED51FCC511}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiBinding", "MultiBinding\MultiBinding.csproj", "{A288456E-F2B4-42D7-83B7-7EC76D7BF289}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -299,6 +301,10 @@ Global
 		{8C73B7C8-9972-475D-91E5-DBED51FCC511}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C73B7C8-9972-475D-91E5-DBED51FCC511}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C73B7C8-9972-475D-91E5-DBED51FCC511}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A288456E-F2B4-42D7-83B7-7EC76D7BF289}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A288456E-F2B4-42D7-83B7-7EC76D7BF289}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A288456E-F2B4-42D7-83B7-7EC76D7BF289}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A288456E-F2B4-42D7-83B7-7EC76D7BF289}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
