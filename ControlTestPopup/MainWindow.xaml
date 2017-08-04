@@ -1,0 +1,22 @@
+﻿<Window x:Class="ControlTestPopup.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ControlTestPopup"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Button Content="123412"></Button>
+        </StackPanel>
+        <Button x:Name="Button1" Content="OPEN" Click="ButtonBase_OnClick"></Button>
+        <Popup Grid.Row="1" AllowsTransparency="True" x:Name="TextBlock1" Placement="Top" PlacementTarget="{Binding ElementName=Button1}" StaysOpen="False">
+            <TextBlock Text="124234235234523452354234"></TextBlock>
+        </Popup>
+    </Grid>
+</Window>
