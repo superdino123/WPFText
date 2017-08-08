@@ -50,11 +50,16 @@ namespace PropertyObject
         /// 声明依赖属性
         /// 参数(包装该属性的CLR属性，该属性的类型，该属性的宿主的类型)
         /// </summary>
-        public static readonly DependencyProperty NameProperty = DependencyProperty.Register("Name",typeof(string),typeof(Student));
+        public static readonly DependencyProperty NameProperty;
+
+        static Student()
+        {
+            NameProperty = DependencyProperty.Register("Name", typeof(string), typeof(Student));
+        }
 
         /// <summary>
         /// CLR属性包装器
-        /// 为啥要用属性包装器：因为直接用依赖属性需要用GetValue和属性转换，看起来不方便
+        /// 为啥要用属性包装器：因为直接用依赖属性需要用GetValue和属性转换，看起来不方便,而且wpf有些功能会直接调用 GetValue / SetValue
         /// 达到效果：
         /// 原来这么写 (string) stu.GetValue(Student.NameProperty);
         /// 现在这么些 stu.Name
