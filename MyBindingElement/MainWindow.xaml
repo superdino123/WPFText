@@ -1,0 +1,17 @@
+﻿<Window x:Class="MyBindingElement.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyBindingElement"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <StackPanel>
+        <Slider x:Name="Slider" Minimum="10" Maximum="60" Value="{Binding ElementName=TextBlock,Path=FontSize}"/>
+        <TextBlock x:Name="TextBlock" Text="test1"/>
+        <Border x:Name="Border" Margin="10" Padding="{Binding ElementName=Border,Path=Margin}" BorderThickness="1" BorderBrush="Black">
+            <TextBlock Text="TEST2" />
+        </Border>
+        <Button Content="test" Click="Button_Click"/>
+    </StackPanel>
+</Window>

@@ -90,7 +90,7 @@ namespace ControlTestDatePicker3
             KeyboardNavigation.IsTabStopProperty.OverrideMetadata(typeof(DatePicker), new FrameworkPropertyMetadata(false));
             IsEnabledProperty.OverrideMetadata(typeof(DatePicker), new UIPropertyMetadata(new PropertyChangedCallback(OnIsEnabledChanged)));
 
-            ControlsTraceLogger.AddControl(TelemetryControls.DatePicker);
+            //ControlsTraceLogger.AddControl(TelemetryControls.DatePicker);
         }
 
         /// <summary>
@@ -608,11 +608,7 @@ namespace ControlTestDatePicker3
         #endregion Text
 
         #endregion Public Properties
-
-        #region Protected properties
-
-        #endregion Protected Properties
-
+        
         #region Internal Properties
 
         internal Calendar Calendar
@@ -632,9 +628,6 @@ namespace ControlTestDatePicker3
         }
 
         #endregion Internal Properties
-
-        #region Private Properties
-        #endregion Private Properties
 
         #region Public Methods
 

@@ -1,16 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 
 namespace MyControlTestColor1
 {
-    public class ColorPicker:Control
+    /*记录模板部件，技术非必需，便于查看*/
+
+    [TemplatePart(Name = "PART_RedSlider", Type = typeof(RangeBase))]
+    [TemplatePart(Name = "PART_GreenSlider", Type = typeof(RangeBase))]
+    [TemplatePart(Name = "PART_BlueSlider", Type = typeof(RangeBase))]
+    [TemplatePart(Name = "PART_PreviewBrush", Type = typeof(SolidColorBrush))]
+    public class ColorPicker : Control
     {
         #region 私有字段
 
@@ -51,17 +54,57 @@ namespace MyControlTestColor1
 
             #region 为自定义控件定义默认样式的依赖项属性
 
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(ColorPicker),new FrameworkPropertyMetadata(typeof(ColorPicker)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(ColorPicker), new FrameworkPropertyMetadata(typeof(ColorPicker)));
 
             #endregion
         }
 
         #endregion
 
-        public ColorPicker()
+        #region 后台添加绑定与事件
+
+        public override void OnApplyTemplate()
         {
-            //SetUpCommands();
+            base.OnApplyTemplate();
+
+            var sliderRed = GetTemplateChild("PART_RedSlider") as RangeBase;
+            if (sliderRed != null)
+            {
+                var binding = new Binding("Red");
+                binding.Source = this;
+                binding.Mode = BindingMode.TwoWay;
+                sliderRed.SetBinding(RangeBase.ValueProperty, binding);
+            }
+
+            var sliderGreen = GetTemplateChild("PART_GreenSlider") as RangeBase;
+            if (sliderGreen != null)
+            {
+                var binding = new Binding("Green");
+                binding.Source = this;
+                binding.Mode = BindingMode.TwoWay;
+                sliderGreen.SetBinding(RangeBase.ValueProperty, binding);
+            }
+
+            var sliderBlue = GetTemplateChild("PART_BlueSlider") as RangeBase;
+            if (sliderBlue != null)
+            {
+                var binding = new Binding("Blue");
+                binding.Source = this;
+                binding.Mode = BindingMode.TwoWay;
+                sliderBlue.SetBinding(RangeBase.ValueProperty, binding);
+            }
+
+            var brush = GetTemplateChild("PART_PreviewBrush") as SolidColorBrush;
+            if (brush != null)
+            {
+                var binding = new Binding("Color");
+                binding.Source = brush;
+                binding.Mode = BindingMode.OneWayToSource;
+                SetBinding(ColorProperty, binding);
+            }
         }
+
+        #endregion
 
         #region 静态字段
 
@@ -88,25 +131,25 @@ namespace MyControlTestColor1
 
         public Color Color
         {
-            get { return (Color)GetValue(ColorProperty); }
+            get { return (Color) GetValue(ColorProperty); }
             set { SetValue(ColorProperty, value); }
         }
 
         public byte Red
         {
-            get { return (byte)GetValue(RedProperty); }
+            get { return (byte) GetValue(RedProperty); }
             set { SetValue(RedProperty, value); }
         }
 
         public byte Green
         {
-            get { return (byte)GetValue(GreenProperty); }
+            get { return (byte) GetValue(GreenProperty); }
             set { SetValue(GreenProperty, value); }
         }
 
         public byte Blue
         {
-            get { return (byte)GetValue(BlueProperty); }
+            get { return (byte) GetValue(BlueProperty); }
             set { SetValue(BlueProperty, value); }
         }
 
@@ -128,24 +171,24 @@ namespace MyControlTestColor1
 
         private static void OnColorRGBChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
-            var colorUserControl = (ColorPicker)sender;
+            var colorUserControl = (ColorPicker) sender;
             var color = colorUserControl.Color;
 
             if (e.Property == RedProperty)
-                color.R = (byte)e.NewValue;
+                color.R = (byte) e.NewValue;
             else if (e.Property == GreenProperty)
-                color.G = (byte)e.NewValue;
+                color.G = (byte) e.NewValue;
             else if (e.Property == BlueProperty)
-                color.B = (byte)e.NewValue;
+                color.B = (byte) e.NewValue;
             colorUserControl.Color = color;
         }
 
         private static void OnColorChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
-            var newColor = (Color)e.NewValue;
-            var oldColor = (Color)e.OldValue;
+            var newColor = (Color) e.NewValue;
+            var oldColor = (Color) e.OldValue;
 
-            var colorUserControl = (ColorPicker)sender;
+            var colorUserControl = (ColorPicker) sender;
             colorUserControl.Red = newColor.R;
             colorUserControl.Green = newColor.G;
             colorUserControl.Blue = newColor.B;
@@ -154,7 +197,7 @@ namespace MyControlTestColor1
             args.RoutedEvent = ColorChangedEvent;
             colorUserControl.RaiseEvent(args);
 
-            colorUserControl.previousColor = (Color)e.OldValue;
+            colorUserControl.previousColor = (Color) e.OldValue;
         }
 
         #endregion
@@ -170,16 +213,16 @@ namespace MyControlTestColor1
         private static void UndoCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             //e.CanExecute = previousColor.HasValue;
-            ColorPicker colorUserControl = (ColorPicker)sender;
+            var colorUserControl = (ColorPicker) sender;
             e.CanExecute = colorUserControl.previousColor.HasValue;
         }
 
         private static void UndoCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             //this.Color = (Color) previousColor;
-            ColorPicker colorUserControl = (ColorPicker)sender;
-            Color currentColor = colorUserControl.Color;
-            colorUserControl.Color = (Color)colorUserControl.previousColor;
+            var colorUserControl = (ColorPicker) sender;
+            var currentColor = colorUserControl.Color;
+            colorUserControl.Color = (Color) colorUserControl.previousColor;
         }
 
         #endregion

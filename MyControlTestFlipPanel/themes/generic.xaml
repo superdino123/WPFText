@@ -1,0 +1,74 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:MyControlTestFlipPanel">
+    <Style TargetType="{x:Type local:FlipPanel}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:FlipPanel">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter Content="{TemplateBinding FrontContent}" />
+                        </Border>
+                        <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter Content="{TemplateBinding BackContent}" />
+                        </Border>
+                        <ToggleButton Grid.Row="1" x:Name="FlipButton" Width="19" Height="19"
+                            Margin="0,10,0,0" RenderTransformOrigin="0.5,0.5" >
+                            <ToggleButton.Template>
+                                <ControlTemplate>
+                                    <Grid>
+                                        <Ellipse Stroke="#FFA9A9A9" Fill="AliceBlue"></Ellipse>
+                                        <Path Data="M1,1.5L4.5,5 8,1.5" Stroke="#FF666666" StrokeThickness="2"
+                                              HorizontalAlignment="Center" VerticalAlignment="Center"></Path>
+                                    </Grid>
+                                </ControlTemplate>
+                            </ToggleButton.Template>
+                            <ToggleButton.RenderTransform>
+                                <RotateTransform x:Name="FlipButtonTransforM" Angle="-90"></RotateTransform>
+                            </ToggleButton.RenderTransform>
+                        </ToggleButton>
+
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="ViewStates">
+                                <!--状态过渡-->
+                                <VisualStateGroup.Transitions>
+                                    <!--<VisualTransition GeneratedDuration="0:0:0.7"></VisualTransition>-->
+                                    <!--指定状态的状态过渡效果-->
+                                    <VisualTransition To="Flipped" GeneratedDuration="0:0:0.5"/>
+                                    <VisualTransition To="Normal" GeneratedDuration="0:0:0.1"/>
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="BackContent"
+                                                         Storyboard.TargetProperty="Opacity" To="0" Duration="0"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Flipped">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="FlipButtonTransform"
+                                                         Storyboard.TargetProperty="Angle" To="90" Duration="0"/>
+                                        <DoubleAnimation Storyboard.TargetName="FrontContent"
+                                                         Storyboard.TargetProperty="Opacity" To="0" Duration="0"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
