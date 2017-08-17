@@ -1,0 +1,157 @@
+﻿<Window x:Class="MyControlTestTimePicker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:MyControlTestTimePicker"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <local:ClockDegreeConverter x:Key="ClockDegreeConverter" TotalParts="60"/>
+        <local:ClockDegreeConverter x:Key="HourDegreeConverter" TotalParts="12"/>
+        <DataTemplate x:Key="FiveMinuteIndicator">
+            <StackPanel Height="57" Orientation="Horizontal" RenderTransformOrigin=".5,1">
+                <StackPanel.RenderTransform>
+                    <RotateTransform Angle="{Binding Converter={StaticResource ClockDegreeConverter},Mode=OneWay}"/>
+                </StackPanel.RenderTransform>
+            </StackPanel>
+        </DataTemplate>
+        <ObjectDataProvider x:Key="TimePickerProvider"
+                            ObjectType="local:TimePickerProvider"
+                            MethodName="GetTimePickerCase" />
+        <x:Array x:Key="FiveMinuteKeys" Type="system:Int32">
+            <system:Int32>0</system:Int32>
+            <system:Int32>5</system:Int32>
+            <system:Int32>10</system:Int32>
+            <system:Int32>15</system:Int32>
+            <system:Int32>20</system:Int32>
+            <system:Int32>25</system:Int32>
+            <system:Int32>30</system:Int32>
+            <system:Int32>35</system:Int32>
+            <system:Int32>40</system:Int32>
+            <system:Int32>45</system:Int32>
+            <system:Int32>50</system:Int32>
+            <system:Int32>55</system:Int32>
+        </x:Array>
+
+        <x:Array x:Key="MinuteKeys" Type="system:Int32">
+            <system:Int32>1</system:Int32>
+            <system:Int32>2</system:Int32>
+            <system:Int32>3</system:Int32>
+            <system:Int32>4</system:Int32>
+            <system:Int32>6</system:Int32>
+            <system:Int32>7</system:Int32>
+            <system:Int32>8</system:Int32>
+            <system:Int32>9</system:Int32>
+            <system:Int32>11</system:Int32>
+            <system:Int32>12</system:Int32>
+            <system:Int32>13</system:Int32>
+            <system:Int32>14</system:Int32>
+            <system:Int32>16</system:Int32>
+            <system:Int32>17</system:Int32>
+            <system:Int32>18</system:Int32>
+            <system:Int32>19</system:Int32>
+            <system:Int32>21</system:Int32>
+            <system:Int32>22</system:Int32>
+            <system:Int32>23</system:Int32>
+            <system:Int32>24</system:Int32>
+            <system:Int32>26</system:Int32>
+            <system:Int32>27</system:Int32>
+            <system:Int32>28</system:Int32>
+            <system:Int32>29</system:Int32>
+            <system:Int32>31</system:Int32>
+            <system:Int32>32</system:Int32>
+            <system:Int32>33</system:Int32>
+            <system:Int32>34</system:Int32>
+            <system:Int32>36</system:Int32>
+            <system:Int32>37</system:Int32>
+            <system:Int32>38</system:Int32>
+            <system:Int32>39</system:Int32>
+            <system:Int32>41</system:Int32>
+            <system:Int32>42</system:Int32>
+            <system:Int32>43</system:Int32>
+            <system:Int32>44</system:Int32>
+            <system:Int32>46</system:Int32>
+            <system:Int32>47</system:Int32>
+            <system:Int32>48</system:Int32>
+            <system:Int32>49</system:Int32>
+            <system:Int32>51</system:Int32>
+            <system:Int32>52</system:Int32>
+            <system:Int32>53</system:Int32>
+            <system:Int32>54</system:Int32>
+            <system:Int32>56</system:Int32>
+            <system:Int32>57</system:Int32>
+            <system:Int32>58</system:Int32>
+            <system:Int32>59</system:Int32>
+        </x:Array>
+
+        <x:Array x:Key="HourKeys" Type="system:Int32">
+            <system:Int32>0</system:Int32>
+            <system:Int32>1</system:Int32>
+            <system:Int32>2</system:Int32>
+            <system:Int32>3</system:Int32>
+            <system:Int32>4</system:Int32>
+            <system:Int32>5</system:Int32>
+            <system:Int32>6</system:Int32>
+            <system:Int32>7</system:Int32>
+            <system:Int32>8</system:Int32>
+            <system:Int32>9</system:Int32>
+            <system:Int32>10</system:Int32>
+            <system:Int32>11</system:Int32>
+        </x:Array>
+    </Window.Resources>
+    <StackPanel>
+        <local:TimePicker Style="{StaticResource TimePicker}"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Width="120" Height="120" BorderThickness="2" CornerRadius="75" BorderBrush="Red">
+                <Canvas HorizontalAlignment="Center">
+                    <Rectangle x:Name="PART_HourHand" Canvas.Top="27" Width="2" Height="30" RenderTransformOrigin=".5,1"
+                               Fill="Red">
+                        <Rectangle.RenderTransform>
+                            <RotateTransform Angle="{Binding Path=SelectedTime,Source=TimePickerProvider,Converter={StaticResource ClockDegreeConverter},ConverterParameter='h',Mode=OneWay}"/>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                    
+                    <Rectangle x:Name="PART_MinuteHand" Canvas.Top="6" Width="2" Height="51" RenderTransformOrigin=".5,1"
+                               Fill="Green">
+                        <Rectangle.RenderTransform>
+                            <RotateTransform Angle="{Binding Path=SelectedTime,Source=TimePickerProvider,Converter={StaticResource ClockDegreeConverter},ConverterParameter='m',Mode=OneWay}"/>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+
+                    <Ellipse Canvas.Left="-2" Canvas.Top="54" Width="6" Height="6"
+                             Fill="Black"/>
+
+                    <Rectangle x:Name="PART_SecondHand" Canvas.Left="0.75" Canvas.Top="6" Width="1" Height="61"
+                               Fill="Blue">
+                        <Rectangle.RenderTransform>
+                            <RotateTransform Angle="{Binding Path=SelectedTime,Source=TimePickerProvider,Converter={StaticResource ClockDegreeConverter},ConverterParameter='s',Mode=OneWay}"/>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                </Canvas>
+            </Border>
+            <Grid x:Name="PART_ClockPartSelectorHolder" Grid.Row="1" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <ComboBox x:Name="PART_HourPicker" Grid.Column="0" ItemsSource="{StaticResource HourKeys}"/>
+                <Label Grid.Column="1" Content=":" />
+                <ComboBox x:Name="PART_MinutePicker" Grid.Column="2" ItemsSource="{StaticResource MinuteKeys}"/>
+                <Label Grid.Column="3" Content=":"/>
+                <ComboBox x:Name="PART_SecondPicker" Grid.Column="4" ItemsSource="{StaticResource MinuteKeys}"/>
+                <ComboBox x:Name="PART_AmPmSwitcher" Grid.Column="5"/>
+                
+            </Grid>
+        </Grid>
+    </StackPanel>
+</Window>

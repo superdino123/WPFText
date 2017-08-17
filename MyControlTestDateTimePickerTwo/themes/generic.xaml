@@ -14,19 +14,21 @@
                                         <ControlTemplate TargetType="{x:Type ButtonBase}">
                                             <Grid Background="{TemplateBinding Background}">
                                                 <ContentPresenter x:Name="PART_ContentPresenter"
-                                                    Margin="{TemplateBinding Padding}"
-                                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                    Opacity="0.75"
-                                                    RecognizesAccessKey="True"
-                                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />    
+                                                                  Margin="{TemplateBinding Padding}"
+                                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                                  Opacity="0.75"
+                                                                  RecognizesAccessKey="True"
+                                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                                             </Grid>
                                             <ControlTemplate.Triggers>
                                                 <Trigger Property="IsMouseOver" Value="True">
-                                                    <Setter TargetName="PART_ContentPresenter" Property="Opacity" Value="1" />
+                                                    <Setter TargetName="PART_ContentPresenter" Property="Opacity"
+                                                            Value="1" />
                                                 </Trigger>
                                                 <Trigger Property="IsMouseOver" Value="False">
-                                                    <Setter TargetName="PART_ContentPresenter" Property="Opacity" Value=".5" />
+                                                    <Setter TargetName="PART_ContentPresenter" Property="Opacity"
+                                                            Value=".5" />
                                                 </Trigger>
                                                 <Trigger Property="IsEnabled" Value="False">
                                                     <Setter Property="Foreground" Value="#ADADAD" />
@@ -45,12 +47,205 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        <DatePickerTextBox x:Name="PART_DatePickerTextBox" Grid.Row="0" Grid.Column="0" AutoWordSelection="True" IsInactiveSelectionHighlightEnabled="True" SelectionBrush="Red"/>
-                        <Button x:Name="PART_Button" Grid.Row="0" Grid.Column="1" />
-                        <Popup x:Name="PART_Popup" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" IsOpen="False" Placement="Bottom">
-                            <Calendar x:Name="PART_Calendar" />
+                        <DatePickerTextBox x:Name="PART_DatePickerTextBox" Grid.Row="0" Grid.Column="0"
+                                           AutoWordSelection="False" IsInactiveSelectionHighlightEnabled="True"
+                                           SelectionBrush="Red" CaretBrush="Transparent"/>
+                        <Button x:Name="PART_Button" Grid.Row="0" Grid.Column="1">
+                            <ContentControl x:Name="PART_ButtonIcon"
+                                                    Style="{DynamicResource PathIconContentControlStyle}"
+                                                    Content="M34,52H31V38.5C29.66,39.9 28.16,40.78 26.34,41.45V37.76C27.3,37.45 28.34,36.86 29.46,36C30.59,35.15 31.36,34.15 31.78,33H34V52M45,52V48H37V45L45,33H48V45H50V48H48V52H45M45,45V38.26L40.26,45H45M18,57V23H23V20A2,2 0 0,1 25,18H29C30.11,18 31,18.9 31,20V23H45V20A2,2 0 0,1 47,18H51C52.11,18 53,18.9 53,20V23H58V57H18M21,54H55V31H21V54M48.5,20A1.5,1.5 0 0,0 47,21.5V24.5A1.5,1.5 0 0,0 48.5,26H49.5C50.34,26 51,25.33 51,24.5V21.5A1.5,1.5 0 0,0 49.5,20H48.5M26.5,20A1.5,1.5 0 0,0 25,21.5V24.5A1.5,1.5 0 0,0 26.5,26H27.5A1.5,1.5 0 0,0 29,24.5V21.5A1.5,1.5 0 0,0 27.5,20H26.5Z"
+                                                    Padding="2"
+                                                    Height="19"
+                                                    Width="19"/>
+                        </Button>
+                        <Popup x:Name="PART_Popup" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" IsOpen="False"
+                               Placement="Bottom" AllowsTransparency="True" PopupAnimation="Fade">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Calendar x:Name="PART_Calendar" Grid.Column="0"  Margin="2,0" BorderBrush="Transparent" SelectionMode="SingleDate"/>
+                                <Grid Grid.Column="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <ComboBox x:Name="PART_HourPicker" Grid.Column="0">
+                                            <ComboBoxItem Content="1" />
+                                            <ComboBoxItem Content="2" />
+                                            <ComboBoxItem Content="3" />
+                                            <ComboBoxItem Content="4" />
+                                            <ComboBoxItem Content="5" />
+                                            <ComboBoxItem Content="6" />
+                                            <ComboBoxItem Content="7" />
+                                            <ComboBoxItem Content="8" />
+                                            <ComboBoxItem Content="9" />
+                                            <ComboBoxItem Content="10" />
+                                            <ComboBoxItem Content="11" />
+                                        </ComboBox>
+                                        <TextBlock Text="：" Grid.Column="1" />
+                                        <ComboBox x:Name="PART_MinutePicker" Grid.Column="2">
+                                            <ComboBoxItem Content="1" />
+                                            <ComboBoxItem Content="2" />
+                                            <ComboBoxItem Content="3" />
+                                            <ComboBoxItem Content="4" />
+                                            <ComboBoxItem Content="5" />
+                                            <ComboBoxItem Content="6" />
+                                            <ComboBoxItem Content="7" />
+                                            <ComboBoxItem Content="8" />
+                                            <ComboBoxItem Content="9" />
+                                            <ComboBoxItem Content="10" />
+                                            <ComboBoxItem Content="11" />
+                                            <ComboBoxItem Content="12" />
+                                            <ComboBoxItem Content="13" />
+                                            <ComboBoxItem Content="14" />
+                                            <ComboBoxItem Content="15" />
+                                            <ComboBoxItem Content="16" />
+                                            <ComboBoxItem Content="17" />
+                                            <ComboBoxItem Content="18" />
+                                            <ComboBoxItem Content="19" />
+                                            <ComboBoxItem Content="20" />
+                                            <ComboBoxItem Content="21" />
+                                            <ComboBoxItem Content="22" />
+                                            <ComboBoxItem Content="23" />
+                                            <ComboBoxItem Content="24" />
+                                            <ComboBoxItem Content="25" />
+                                            <ComboBoxItem Content="26" />
+                                            <ComboBoxItem Content="27" />
+                                            <ComboBoxItem Content="28" />
+                                            <ComboBoxItem Content="29" />
+                                            <ComboBoxItem Content="30" />
+                                            <ComboBoxItem Content="31" />
+                                            <ComboBoxItem Content="32" />
+                                            <ComboBoxItem Content="33" />
+                                            <ComboBoxItem Content="34" />
+                                            <ComboBoxItem Content="35" />
+                                            <ComboBoxItem Content="36" />
+                                            <ComboBoxItem Content="37" />
+                                            <ComboBoxItem Content="38" />
+                                            <ComboBoxItem Content="39" />
+                                            <ComboBoxItem Content="40" />
+                                            <ComboBoxItem Content="41" />
+                                            <ComboBoxItem Content="42" />
+                                            <ComboBoxItem Content="43" />
+                                            <ComboBoxItem Content="44" />
+                                            <ComboBoxItem Content="45" />
+                                            <ComboBoxItem Content="46" />
+                                            <ComboBoxItem Content="47" />
+                                            <ComboBoxItem Content="48" />
+                                            <ComboBoxItem Content="49" />
+                                            <ComboBoxItem Content="50" />
+                                            <ComboBoxItem Content="51" />
+                                            <ComboBoxItem Content="52" />
+                                            <ComboBoxItem Content="53" />
+                                            <ComboBoxItem Content="54" />
+                                            <ComboBoxItem Content="55" />
+                                            <ComboBoxItem Content="56" />
+                                            <ComboBoxItem Content="57" />
+                                            <ComboBoxItem Content="58" />
+                                            <ComboBoxItem Content="59" />
+                                        </ComboBox>
+                                        <TextBlock Text="：" Grid.Column="3" />
+                                        <ComboBox x:Name="PART_SecondPicker" Grid.Column="4">
+                                            <ComboBoxItem Content="1" />
+                                            <ComboBoxItem Content="2" />
+                                            <ComboBoxItem Content="3" />
+                                            <ComboBoxItem Content="4" />
+                                            <ComboBoxItem Content="5" />
+                                            <ComboBoxItem Content="6" />
+                                            <ComboBoxItem Content="7" />
+                                            <ComboBoxItem Content="8" />
+                                            <ComboBoxItem Content="9" />
+                                            <ComboBoxItem Content="10" />
+                                            <ComboBoxItem Content="11" />
+                                            <ComboBoxItem Content="12" />
+                                            <ComboBoxItem Content="13" />
+                                            <ComboBoxItem Content="14" />
+                                            <ComboBoxItem Content="15" />
+                                            <ComboBoxItem Content="16" />
+                                            <ComboBoxItem Content="17" />
+                                            <ComboBoxItem Content="18" />
+                                            <ComboBoxItem Content="19" />
+                                            <ComboBoxItem Content="20" />
+                                            <ComboBoxItem Content="21" />
+                                            <ComboBoxItem Content="22" />
+                                            <ComboBoxItem Content="23" />
+                                            <ComboBoxItem Content="24" />
+                                            <ComboBoxItem Content="25" />
+                                            <ComboBoxItem Content="26" />
+                                            <ComboBoxItem Content="27" />
+                                            <ComboBoxItem Content="28" />
+                                            <ComboBoxItem Content="29" />
+                                            <ComboBoxItem Content="30" />
+                                            <ComboBoxItem Content="31" />
+                                            <ComboBoxItem Content="32" />
+                                            <ComboBoxItem Content="33" />
+                                            <ComboBoxItem Content="34" />
+                                            <ComboBoxItem Content="35" />
+                                            <ComboBoxItem Content="36" />
+                                            <ComboBoxItem Content="37" />
+                                            <ComboBoxItem Content="38" />
+                                            <ComboBoxItem Content="39" />
+                                            <ComboBoxItem Content="40" />
+                                            <ComboBoxItem Content="41" />
+                                            <ComboBoxItem Content="42" />
+                                            <ComboBoxItem Content="43" />
+                                            <ComboBoxItem Content="44" />
+                                            <ComboBoxItem Content="45" />
+                                            <ComboBoxItem Content="46" />
+                                            <ComboBoxItem Content="47" />
+                                            <ComboBoxItem Content="48" />
+                                            <ComboBoxItem Content="49" />
+                                            <ComboBoxItem Content="50" />
+                                            <ComboBoxItem Content="51" />
+                                            <ComboBoxItem Content="52" />
+                                            <ComboBoxItem Content="53" />
+                                            <ComboBoxItem Content="54" />
+                                            <ComboBoxItem Content="55" />
+                                            <ComboBoxItem Content="56" />
+                                            <ComboBoxItem Content="57" />
+                                            <ComboBoxItem Content="58" />
+                                            <ComboBoxItem Content="59" />
+                                        </ComboBox>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
                         </Popup>
                     </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="PathIconContentControlStyle" TargetType="{x:Type ContentControl}">
+        <Setter Property="Height" Value="16" />
+        <Setter Property="Width" Value="16" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="FlowDirection" Value="LeftToRight" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="SnapsToDevicePixels" Value="False" />
+        <Setter Property="UseLayoutRounding" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ContentControl}">
+                    <Viewbox Margin="{TemplateBinding Padding}">
+                        <Path Fill="{TemplateBinding Foreground}"
+                              Stretch="Uniform"
+                              Data="{Binding Content, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}"
+                              SnapsToDevicePixels="False"
+                              UseLayoutRounding="False" />
+                    </Viewbox>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

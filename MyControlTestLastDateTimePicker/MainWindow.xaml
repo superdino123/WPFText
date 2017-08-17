@@ -1,0 +1,34 @@
+﻿<Window x:Class="MyControlTestLastDateTimePicker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyControlTestLastDateTimePicker"
+        xmlns:DateTimePicker="clr-namespace:MyControlTestLastDateTimePicker.DateTimePickerCs"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <ResourceDictionary Source="DateTimePickerXaml/DateTimePicker.xaml" />
+    </Window.Resources>
+    <Border Background="#DCDCDC">
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+            <TextBlock Text="测试顶部稳定性" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="测试左部稳定性" />
+                <DateTimePicker:DateTimePicker Grid.Column="1" Style="{StaticResource DateTimePicker}" Width="250"
+                                               NoTime="True" />
+                <TextBlock Grid.Column="2" Text="测试右部稳定性" />
+            </Grid>
+            <TextBlock Text="测试底部稳定性" />
+            <DateTimePicker:DateTimePicker Style="{StaticResource DateTimePicker}" Width="250" NoTime="False" />
+        </StackPanel>
+    </Border>
+</Window>
+
+
+

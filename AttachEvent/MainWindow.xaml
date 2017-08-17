@@ -1,0 +1,16 @@
+﻿<Window x:Class="AttachEvent.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AttachEvent"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <StackPanel x:Name="pnlButtons" Margin="5" Button.Click="StackPanel_Click">
+            <Button Name="cmd1" Tag="Command1" >Command 1</Button>
+            <Button Name="cmd2" Tag="Command2">Command 2</Button>
+            <Button Name="cmd3" Tag="Command3">Command 3</Button>
+        </StackPanel>
+    </Grid>
+</Window>
